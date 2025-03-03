@@ -16,9 +16,9 @@ const bot = new Bot(BOT_TOKEN, {
 });
 
 // Making the bot only accessible to the owner.
-bot.use(async (ctx, next) =>
-  ctx.from?.id === ADMIN_ID ? await next() : undefined
-);
+//bot.use(async (ctx, next) =>
+//  ctx.from?.id === ADMIN_ID ? await next() : undefined
+//);
 
 bot.command("start", async (ctx) => {
   await ctx.reply(
