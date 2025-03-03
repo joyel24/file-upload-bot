@@ -84,7 +84,7 @@ bot.command(["upload", "to"], async (ctx) => {
       caption: `Filename: <code>${sanitize(filename)}</code>` +
         `\nPath: <code>${sanitize(path)}</code>` +
         `\nSize: ${bytes(exists.size)}` +
-        `\nCreated at: <code>${exists.birthtime?.toUTCString()}</code>`,
+        `\nCreated at: <code>${exists.ctime?.toUTCString()}</code>`,
       parse_mode: "HTML",
     });
 
@@ -247,7 +247,7 @@ async function getFileList(path: string): Promise<FileList[]> {
         name: file.name,
         path: join(path, file.name),
         size: stat.size,
-        created_at: stat.birthtime?.toUTCString() ?? "",
+        created_at: stat.ctime?.toUTCString() ?? "",
       });
     }
   }
